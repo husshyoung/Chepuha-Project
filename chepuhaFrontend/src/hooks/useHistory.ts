@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-
 export interface SavedPlayerStory {
     playerName: string;
     story: string;
     answers?: string[];
     templateId?: string;
 }
-
 export interface SavedGame {
     id: string;
     sessionId?: string;
@@ -16,17 +14,13 @@ export interface SavedGame {
     stories: SavedPlayerStory[];
     timestamp: number;
 }
-
 const STORAGE_KEY = 'chepuha_history';
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
-
 export function useHistory() {
     const [savedGames, setSavedGames] = useState<SavedGame[]>([]);
-
     useEffect(() => {
         loadHistory();
     }, []);
-
     const loadHistory = () => {
         try {
             const data = localStorage.getItem(STORAGE_KEY);
@@ -40,20 +34,15 @@ export function useHistory() {
                 setSavedGames(validGames.sort((a, b) => b.timestamp - a.timestamp));
             }
         } catch (e) {
-
-
         }
     };
-
     const saveGameToHistory = (game: Omit<SavedGame, 'id' | 'timestamp'>) => {
         try {
             const data = localStorage.getItem(STORAGE_KEY);
             let parsed: SavedGame[] = data ? JSON.parse(data) : [];
-
             if (game.sessionId && parsed.some(g => g.sessionId === game.sessionId)) {
                 return;
             }
-
             const newGame: SavedGame = {
                 ...game,
                 id: crypto.randomUUID(),
@@ -63,10 +52,7 @@ export function useHistory() {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
             setSavedGames(parsed);
         } catch (e) {
-
-
         }
     };
-
     return { savedGames, saveGameToHistory, loadHistory };
 }

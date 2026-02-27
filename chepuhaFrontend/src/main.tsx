@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider, useRouteError } from 'react-router-dom'
 import './index.scss'
 import App from './App'
-
 function ErrorPage() {
   const error = useRouteError() as { status?: number; statusText?: string };
   return (
@@ -14,16 +13,13 @@ function ErrorPage() {
     </div>
   );
 }
-
 import { LanguageProvider } from './contexts/LanguageContext';
-
 const router = createBrowserRouter(
   [
     {
       path: "/",
       element: <LanguageProvider><App /></LanguageProvider>,
       errorElement: <ErrorPage />,
-
     },
   ],
   {
@@ -37,12 +33,10 @@ const router = createBrowserRouter(
     },
   },
 );
-
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Не вийшло знайти кореневий елемент")
 };
-
 const root = createRoot(rootElement);
 root.render(<StrictMode>
   <RouterProvider router={router} />

@@ -4,14 +4,12 @@ import styles from "./GameResult.module.scss";
 import { Phases } from "../../types/phaseVariant";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { TEMPLATES, parseLegacyStory } from "../../config/templates";
-
 interface Story {
   playerName: string;
   story: string;
   answers?: string[];
   templateId?: string;
 }
-
 interface ResultProps {
   stories: Story[];
   storyIndex: number;
@@ -22,7 +20,6 @@ interface ResultProps {
   onPrev: () => void;
   onNext: () => void;
 }
-
 function downloadAsTxt(text: string, playerName: string) {
   const safe = playerName.replace(/[^a-zA-Z0-9\u0400-\u04ff]/g, "_");
   const filename = `${safe}_ChepuhaGame.txt`;
@@ -34,7 +31,6 @@ function downloadAsTxt(text: string, playerName: string) {
   a.click();
   URL.revokeObjectURL(url);
 }
-
 const GameResult: React.FC<ResultProps> = ({
   stories,
   storyIndex,
@@ -48,11 +44,9 @@ const GameResult: React.FC<ResultProps> = ({
   const { t, language } = useLanguage();
   const current = stories[storyIndex];
   const title = current ? `${t('STORY_OF')} ${current.playerName}` : t('LOADING');
-
   let content = current?.story ?? "";
   let finalAnswers = current?.answers;
   let finalTemplateId = current?.templateId;
-
   if (!finalAnswers || !finalTemplateId) {
     const legacyParsed = parseLegacyStory(content);
     if (legacyParsed) {
@@ -60,20 +54,17 @@ const GameResult: React.FC<ResultProps> = ({
       finalTemplateId = legacyParsed.templateId;
     }
   }
-
   if (finalAnswers && finalTemplateId) {
     const tmpl = TEMPLATES[finalTemplateId];
     if (tmpl) {
       content = tmpl.buildStory(finalAnswers, language);
     }
   }
-
   return (
     <div className={classNames(styles.wrapper, styles[phase])}>
       <div className={styles.container}>
         <div className={classNames(styles.box, styles[phase])}>
           <h2 className={styles.title}>{title}</h2>
-
           <div className={styles.storyNav}>
             <button
               className={styles.arrowBtn}
@@ -95,8 +86,6 @@ const GameResult: React.FC<ResultProps> = ({
               ▶
             </button>
           </div>
-
-
           {(phase === Phases.End || phase === Phases.History) && (
             <div className={styles.actions}>
               <button className={styles.GoBackButton} onClick={onHome}>
@@ -121,5 +110,4 @@ const GameResult: React.FC<ResultProps> = ({
     </div>
   );
 };
-
 export default GameResult;

@@ -16,8 +16,6 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
-
-  /* Масштабування екрану до 67% як просив користувач */
 }
 
 .logo-wrapper {
@@ -76,12 +74,14 @@
 }
 
 .create-game-container {
+  position: relative;
+  z-index: 20;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 50px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin-top: -10vh;
 }
 
@@ -196,11 +196,13 @@
   position: absolute;
   top: 40px;
   right: 60px;
+  z-index: 100;
+  pointer-events: auto;
 }
 
 .roundPos {
   position: absolute;
-  top: 140px;
+  top: 40px;
   right: 60px;
 }
 
@@ -248,18 +250,18 @@
   bottom: 0;
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 15;
+  z-index: 1;
   opacity: 0.5;
   cursor: default;
 }
 
 .yellow-guy-bg {
-  bottom: -20px;
+  bottom: 50px;
   right: -70px;
   background-image: url("./assets/images/yellowGuy.png");
   display: block;
-  width: 670px;
-  height: 670px;
+  width: 850px;
+  height: 850px;
   z-index: 1;
 }
 
@@ -267,9 +269,18 @@
   left: -85px;
   bottom: -20px;
   background-image: url("./assets/images/RedGuyRemoved.png");
-  width: 670px;
-  height: 670px;
+  width: 850px;
+  height: 850px;
   transform: rotate(-3deg);
+}
+
+.waiting-host-text {
+  @include font-pangolin(60);
+  color: $black;
+  text-align: center;
+  margin: 0;
+  margin-top: -30px;
+  transform: translateX(12px);
 }
 
 .template-selector {
@@ -290,19 +301,23 @@
 }
 
 .template-cards-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 20px;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .template-card {
-  width: 380px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0.4);
   border: 4px solid transparent;
-  border-radius: 30px;
-  padding: 25px 20px;
+  border-radius: 20px;
+  padding: 15px 10px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);

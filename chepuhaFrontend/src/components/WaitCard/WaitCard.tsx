@@ -3,14 +3,12 @@ import styles from "./WaitCard.module.scss";
 import Button from "../Button/Button";
 import { playSecretMusic } from "../../utils/audio";
 import { useLanguage } from "../../contexts/LanguageContext";
-
 interface WaitCardProps {
   nick: string;
   joinedCount: number;
   totalCount: number;
   message?: string;
 }
-
 const WaitCard: React.FC<WaitCardProps> = ({
   nick,
   joinedCount,
@@ -22,7 +20,6 @@ const WaitCard: React.FC<WaitCardProps> = ({
     <div className={styles.wrapper}>
       <div className={styles.yellowGuy} onClick={playSecretMusic} />
       <div className={styles.redGuy} onClick={playSecretMusic} />
-
       <div className={styles.container}>
         <h2 className={styles.nickText}>{t('YOUR_NICK')} {nick}</h2>
         <p className={styles.countText}>

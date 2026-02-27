@@ -1,14 +1,12 @@
 import React from "react";
 import styles from "./Story.module.scss";
 import { Phases } from "../../types/phaseVariant";
-
 interface Story {
   title: string;
   content: string;
   phase: Phases;
   onHome: () => void;
 }
-
 const Story: React.FC<Story> = ({
   title,
   content,
@@ -37,5 +35,4 @@ const Story: React.FC<Story> = ({
     </div>
   );
 };
-
 export default Story;

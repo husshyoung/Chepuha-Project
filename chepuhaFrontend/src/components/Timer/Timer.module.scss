@@ -1,6 +1,5 @@
 @use "../../styles/colors.scss" as *;
 @use "../../styles/typography.scss" as *;
-
 .timer-container {
  @include font-acme(64);
   color: $red;

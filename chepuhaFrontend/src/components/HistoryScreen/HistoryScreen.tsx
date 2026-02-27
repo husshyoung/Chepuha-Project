@@ -4,13 +4,11 @@ import styles from "./HistoryScreen.module.scss";
 import { Phases } from "../../types/phaseVariant";
 import { SavedGame } from "../../hooks/useHistory";
 import { useLanguage } from "../../contexts/LanguageContext";
-
 interface HistoryScreenProps {
     games: SavedGame[];
     onSelectGame: (game: SavedGame) => void;
     onHome: () => void;
 }
-
 const HistoryScreen: React.FC<HistoryScreenProps> = ({
     games,
     onSelectGame,
@@ -22,7 +20,6 @@ const HistoryScreen: React.FC<HistoryScreenProps> = ({
             <div className={styles.container}>
                 <div className={styles.box}>
                     <h2 className={styles.title}>{t('HISTORY_24H')}</h2>
-
                     <div className={styles.list}>
                         {games.length === 0 ? (
                             <p className={styles.emptyText}>{t('NO_HISTORY')}</p>
@@ -39,7 +36,6 @@ const HistoryScreen: React.FC<HistoryScreenProps> = ({
                             ))
                         )}
                     </div>
-
                     <div className={styles.actions}>
                         <button className={styles.GoBackButton} onClick={onHome}>
                             {t('GO_MAIN')}
@@ -51,5 +47,4 @@ const HistoryScreen: React.FC<HistoryScreenProps> = ({
         </div>
     );
 };
-
 export default HistoryScreen;

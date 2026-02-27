@@ -5,7 +5,6 @@ import Input from '../Input/Input';
 import { Phases } from '../../types/phaseVariant';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { TranslationKey } from '../../config/i18n';
-
 interface RoundCardProps {
     playerName: string;
     phase: Phases;
@@ -14,7 +13,6 @@ interface RoundCardProps {
     playerTotal?: number;
     onSubmitAnswer?: (answer: string) => void;
 }
-
 export const RoundCard = ({
     playerName,
     phase,
@@ -25,23 +23,18 @@ export const RoundCard = ({
 }: RoundCardProps) => {
     const [answer, setAnswer] = useState('');
     const { t } = useLanguage();
-
     const isWaiting = phase === Phases.Waiting;
-
     const handleSubmit = () => {
         if (onSubmitAnswer && answer.trim() !== '') {
             onSubmitAnswer(answer);
             setAnswer('');
         }
     };
-
     return (
         <div className={`${styles.roundCard} ${isWaiting ? styles.waiting : ''}`}>
-
             <div className={styles.header}>
                 <h2 className={styles.playerName}>{playerName}</h2>
             </div>
-
             <div className={styles.body}>
                 {isWaiting ? (
                     <div className={styles.waitingContent}>
@@ -61,7 +54,6 @@ export const RoundCard = ({
                             autoFocus={true}
                             className={styles.cardInput}
                         />
-
                         <div className={styles.buttonContainer}>
                             <Button
                                 label={t('SAVE')}

@@ -1,13 +1,11 @@
 import React from "react";
 import styles from "./Round.module.scss";
 import { useLanguage } from "../../contexts/LanguageContext";
-
 interface RoundProps {
     currentRound: number;
     totalRounds: number;
     className?: string;
 }
-
 const Round: React.FC<RoundProps> = ({ currentRound, totalRounds, className = "" }) => {
     const { t } = useLanguage();
     return (
@@ -17,5 +15,4 @@ const Round: React.FC<RoundProps> = ({ currentRound, totalRounds, className = ""
         </div>
     );
 };
-
 export default Round;

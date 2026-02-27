@@ -2,7 +2,6 @@ export interface StrapiResponse<T> {
     data: StrapiItem<T>;
     meta: Record<string, unknown>;
 }
-
 export interface StrapiListResponse<T> {
     data: StrapiItem<T>[];
     meta: {
@@ -14,20 +13,17 @@ export interface StrapiListResponse<T> {
         };
     };
 }
-
 export interface StrapiItem<T> {
     id: number;
     documentId: string;
     attributes?: T;
     [key: string]: unknown;
 }
-
 export type SessionStatus = 'waiting' | 'active' | 'completed';
 export type PlayerStatus = 'joined' | 'ready' | 'playing' | 'finished';
 export type RoundStatus = 'pending' | 'active' | 'completed';
 export type QuestionType = 'who' | 'when' | 'where' | 'with_whom' | 'what_did' | 'what_said' | 'how_ended';
 export type StorySheetStatus = 'in_progress' | 'completed';
-
 export interface GameSession {
     id: number;
     documentId: string;
@@ -43,7 +39,6 @@ export interface GameSession {
     rounds?: Round[];
     story_sheets?: StorySheet[];
 }
-
 export interface Player {
     id: number;
     documentId: string;
@@ -53,7 +48,6 @@ export interface Player {
     joined_at: string | null;
     session_id?: Pick<GameSession, 'id' | 'documentId'>;
 }
-
 export interface Round {
     id: number;
     documentId: string;
@@ -65,7 +59,6 @@ export interface Round {
     session_id?: Pick<GameSession, 'id' | 'documentId'>;
     answers?: Answer[];
 }
-
 export interface Answer {
     id: number;
     documentId: string;
@@ -76,7 +69,6 @@ export interface Answer {
     round?: Pick<Round, 'id' | 'documentId'>;
     story_sheet?: Pick<StorySheet, 'id' | 'documentId'>;
 }
-
 export interface StorySheet {
     id: number;
     documentId: string;

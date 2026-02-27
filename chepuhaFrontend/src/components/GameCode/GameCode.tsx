@@ -1,12 +1,10 @@
 import React from "react";
 import styles from "./GameCode.module.scss";
 import { useLanguage } from "../../contexts/LanguageContext";
-
 interface GameCodeProps {
     code: string;
     className?: string;
 }
-
 const GameCode: React.FC<GameCodeProps> = ({ code, className = "" }) => {
     const { t } = useLanguage();
     return (
@@ -16,5 +14,4 @@ const GameCode: React.FC<GameCodeProps> = ({ code, className = "" }) => {
         </div>
     );
 }
-
 export default GameCode;

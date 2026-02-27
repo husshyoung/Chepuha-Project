@@ -5,7 +5,6 @@ import { playSecretMusic } from "../../utils/audio";
 import { Phases } from "../../types/phaseVariant";
 import Input from "../Input/Input";
 import { useLanguage } from "../../contexts/LanguageContext";
-
 interface JoinCardProps {
   onJoin: (nick: string, room: string) => void;
   onHome: () => void;
@@ -14,7 +13,6 @@ interface JoinCardProps {
     room?: string;
   };
 }
-
 const JoinCard: React.FC<JoinCardProps> = ({
   onJoin,
   onHome,
@@ -24,7 +22,6 @@ const JoinCard: React.FC<JoinCardProps> = ({
   const [nickInputValue, setNickInputValue] = useState("");
   const [roomInputValue, setRoomInputValue] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const doJoinClick = () => {
     setIsSubmitted(true);
     if (!nickInputValue.trim() || !roomInputValue.trim()) {
@@ -32,12 +29,10 @@ const JoinCard: React.FC<JoinCardProps> = ({
     }
     onJoin(nickInputValue, roomInputValue);
   };
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.YellowGuy} onClick={playSecretMusic} />
       <div className={styles.RedGuy} onClick={playSecretMusic} />
-
       <div className={styles.container}>
         <div className={styles.form}>
           <div className={styles.inputWrapper}>
@@ -56,7 +51,6 @@ const JoinCard: React.FC<JoinCardProps> = ({
               </span>
             )}
           </div>
-
           <div className={styles.inputWrapper}>
             <Input
               value={roomInputValue}
@@ -70,7 +64,6 @@ const JoinCard: React.FC<JoinCardProps> = ({
               </span>
             )}
           </div>
-
           <div className={styles.submitBlock}>
             <button className={styles.joinButton} onClick={doJoinClick}>
               {t('JOIN_GAME')}

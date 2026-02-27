@@ -1,5 +1,4 @@
 export { apiClient } from './apiClient';
-
 export type {
     StrapiResponse,
     StrapiListResponse,
@@ -15,7 +14,6 @@ export type {
     QuestionType,
     StorySheetStatus,
 } from './types';
-
 export {
     createGameSession,
     getGameSession,
@@ -24,7 +22,6 @@ export {
     deleteGameSession,
 } from './gameSession.api';
 export type { CreateGameSessionPayload } from './gameSession.api';
-
 export {
     createPlayer,
     getPlayer,
@@ -33,7 +30,6 @@ export {
     deletePlayer,
 } from './player.api';
 export type { CreatePlayerPayload } from './player.api';
-
 export {
     createRound,
     getRound,
@@ -41,7 +37,6 @@ export {
     updateRound,
 } from './round.api';
 export type { CreateRoundPayload } from './round.api';
-
 export {
     submitAnswer,
     getAnswer,
@@ -49,7 +44,6 @@ export {
     getAnswersByStorySheet,
 } from './answer.api';
 export type { SubmitAnswerPayload } from './answer.api';
-
 export {
     createStorySheet,
     getStorySheet,
