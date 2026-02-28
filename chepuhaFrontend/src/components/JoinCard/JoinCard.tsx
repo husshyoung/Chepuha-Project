@@ -31,8 +31,6 @@ const JoinCard: React.FC<JoinCardProps> = ({
   };
   return (
     <div className={styles.wrapper}>
-      <div className={styles.YellowGuy} onClick={playSecretMusic} />
-      <div className={styles.RedGuy} onClick={playSecretMusic} />
       <div className={styles.container}>
         <div className={styles.form}>
           <div className={styles.inputWrapper}>

@@ -517,10 +517,15 @@ function App() {
           </div>
         </>
       )}
-      {!didGameStart && isCreatingLobby && !isLobby && phase !== Phases.Join && (
+      {(phase === Phases.Join || (isCreatingLobby && !isLobby)) && (
         <>
           <div className="yellow-guy-bg" onClick={playSecretMusic} />
           <div className="red-guy-bg" onClick={playSecretMusic} />
+        </>
+      )}
+
+      {!didGameStart && isCreatingLobby && !isLobby && phase !== Phases.Join && (
+        <>
           <div className="create-game-container">
             <div className="input-wrapper">
               <input
