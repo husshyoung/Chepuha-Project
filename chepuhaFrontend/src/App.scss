@@ -301,8 +301,9 @@
   }
 
   .template-cards-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+    padding: 0 10px;
   }
 
   .template-card {
@@ -310,7 +311,7 @@
   }
 
   .template-name {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .nickname-input {
@@ -320,6 +321,20 @@
 
   .create-game-container {
     gap: 20px;
+  }
+
+  .menu-buttons {
+    gap: 15px;
+    transform: scale(0.9);
+  }
+
+  .logo-wrapper {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .logo-wrapper .logo {
+    max-width: 90vw;
   }
 }
 
