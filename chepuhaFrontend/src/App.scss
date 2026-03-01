@@ -212,20 +212,14 @@
   left: 60px;
 }
 
-.timerPos {
-  position: absolute;
-  top: 40px;
-  left: 60px;
-}
-
 .homeIconPos {
   position: absolute;
   bottom: 40px;
   right: 40px;
-  width: 130px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   background-color: transparent;
-  border: 6px solid $black;
+  border: 4px solid $black;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -238,8 +232,8 @@
   }
 
   img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
   }
 }
@@ -368,7 +362,8 @@
 }
 
 .lang-btn {
-  font-size: 40px;
+  width: 126px;
+  height: 84px;
   background-color: $black;
   border: 4px solid $black;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
@@ -416,7 +411,15 @@
   color: $black;
   text-transform: uppercase;
 }
+
 @media (max-width: 768px) {
+  .app-view {
+    width: 100vw;
+    height: 100vh;
+    transform: none;
+    transform-origin: unset;
+  }
+
   .yellow-guy-bg,
   .red-guy-bg {
     width: 200px;
@@ -463,20 +466,72 @@
   }
 
   .create-game-container {
-    gap: 20px;
+    gap: 30px;
+    margin-top: 5vh; // Moved down as requested
+    height: auto;
+    min-height: 75vh;
+    justify-content: center; // Balanced layout
+    padding-bottom: 30px;
   }
 
   .menu-buttons {
-    gap: 15px;
-    transform: scale(0.9);
+    gap: 20px;
+    transform: none; // Removed scale to keep text sharp and large
+
+    .button {
+      font-size: 50px !important; // Enlarge main menu texts
+    }
+  }
+
+  .lobby-container {
+    gap: 30px;
+    margin-top: -5vh;
+  }
+
+  .lobby-info {
+    gap: 20px;
   }
 
   .logo-wrapper {
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
   }
 
   .logo-wrapper .logo {
-    max-width: 90vw;
+    max-width: 80vw;
+  }
+
+  .gameCodePos {
+    top: 15px;
+    right: 15px;
+  }
+
+  .homeIconPos {
+    width: 60px;
+    height: 60px;
+    bottom: 15px;
+    right: 15px;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .lang-btn {
+    width: 60px;
+    height: 40px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .language-selector {
+    bottom: 85px;
+    right: 15px;
+    left: auto;
+    gap: 10px;
   }
 }

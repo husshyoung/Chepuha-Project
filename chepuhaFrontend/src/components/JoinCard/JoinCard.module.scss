@@ -73,25 +73,6 @@
   align-items: center;
 }
 
-.joinButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  @include font-100;
-  color: $black;
-  text-transform: uppercase;
-  transition: transform 0.2s;
-  display: inline-block;
-  width: auto;
-  text-align: center;
-  white-space: nowrap;
-  padding: 0;
-
-  &:hover {
-    transform: rotate(-10deg) scale(0.95);
-  }
-}
-
 .errorText {
   color: $red;
   -webkit-text-stroke: 1px $black;
@@ -114,10 +95,6 @@
   .input {
     height: 60px;
     font-size: 20px;
-  }
-
-  .joinButton {
-    font-size: 40px;
   }
 
   .errorText {
